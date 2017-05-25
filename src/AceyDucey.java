@@ -90,7 +90,7 @@ public class AceyDucey {
 
     public static void printCard(int card) {
         if(card < 11) {
-            System.out.println(" " + a);
+            System.out.println(" " + card);
         }
         else if(card == 11) {
             System.out.println(" Jack");
