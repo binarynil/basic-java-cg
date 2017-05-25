@@ -33,6 +33,7 @@ public class AceyDucey {
         System.out.printf("You have %d dollars \n", money);
 
         do {
+            System.out.println();
             System.out.println("Here are you next two cards ");
 
             int a = rollCard();
