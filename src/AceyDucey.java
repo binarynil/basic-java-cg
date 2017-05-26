@@ -17,8 +17,12 @@ public class AceyDucey {
         Scanner keyboard = new Scanner(System.in);
 
 
-        int money = 100;
-        boolean win = true;
+        int[] moneyBet = {100, 0}; //index 0 total money, index 1 bet
+        int bet;
+
+        boolean hasMoney = true;
+        boolean yourTurn;
+        boolean roundWin = true;
         System.out.println("           Acey Ducey Card Game");
         System.out.println("Creative Computing  Morristown, New Jersey");
         System.out.println();
@@ -33,52 +37,75 @@ public class AceyDucey {
         System.out.printf("You have %d dollars \n", money);
 
         do {
-            System.out.println();
-            System.out.println("Here are you next two cards ");
 
-            int a = rollCard();
-            int b = rollCard();
+            yourTurn = false;
+            hasMoney = checkMoney(hasMoney, moneyBet);
 
-            do {
-                a = rollCard();
-            } while(a >= b);
+            if(!hasMoney) {
+                System.out.println("You ran out of money! Game Over!");
+            }
+            else {
+                System.out.println();
+                System.out.println("Here are your next two cards ");
 
-            printCard(a);
-            printCard(b);
+                int a = rollCard();
+                int b = rollCard();
 
-            System.out.println();
-            System.out.println();
+                do {
+                    a = rollCard();
+                } while(a >= b);
 
-            int bet;
+                printCard(a);
+                printCard(b);
 
-            do {
-                System.out.println("What is your bet? ");
-                bet = keyboard.nextInt();
-                if(bet == 0) {
-                    System.out.println("Chicken!!");
-                }
-                else if(bet <= money) {
-                    int c = rollCard();
-                    printCard(c);
-                    if(c>a) {
-                        win = checkB(b,c);
+                System.out.println();
+
+                do {
+                    System.out.println("What is your bet? ");
+                    bet = keyboard.nextInt();
+                    moneyBet[1] = bet;
+                    if(bet == 0) {
+                        System.out.println("Chicken!!");
                     }
-                }
-
-            } while(bet != 0);
-
-
-        } while(win);
+                    else if(bet <= moneyBet[0]) {
+                        int c = rollCard();
+                        printCard(c);
+                        if(c > a && c >= b) {
+                            roundWin = false;
+                            System.out.println("Sorry, you lose.");
+                        }
+                        else {
+                            roundWin = true;
+                        }
+                        moneyBet = calcMoney(roundWin, moneyBet);
+                    }
+                    else {
+                        System.out.println("Enter a valid bet");
+                    }
+                    yourTurn = true;
+                } while(!yourTurn);
+            }
+        } while(hasMoney);
 
     }
 
-    public static boolean checkB(int b, int c) {
-        boolean win = true;
-        if(c >= b) {
-            System.out.println(" Sorry, you lose.");
-            win = false;
+    public static boolean checkMoney(boolean hasMoney, int[] moneyBet) {
+        int money = moneyBet[0];
+        if(money == 0) {
+            hasMoney = false;
         }
-        return win;
+        return hasMoney;
+    }
+
+    public static int[] calcMoney(boolean roundWin, int[] moneyBet) {
+        if(roundWin) {
+            moneyBet[0] = moneyBet[0] + moneyBet[1];
+        }
+        else {
+            moneyBet[0] = moneyBet[0] - moneyBet[1];
+        }
+        System.out.printf("You now have %d dollars \n", moneyBet[0]);
+        return moneyBet;
     }
 
     public static int rollCard() {
