@@ -10,12 +10,15 @@ approaches to finding the mystery number. Bob Albrecht of People's
 Computer created this game.
 This is the Java conversion of that code.
  */
+import java.util.Scanner;
 public class Stars {
 
     private static int maxValue = 100;
     private static int maxTries = 7;
 
     public static void star() {
+        Scanner keyboard = new Scanner(System.in);
+
         System.out.println("                   Stars");
         System.out.println("Creative Computing  Morristown, New Jersey");
         System.out.println();
@@ -28,7 +31,57 @@ public class Stars {
         System.out.println("You get " + maxTries + " guesses.");
         System.out.println();
 
+        int randNum = (int)((Math.random() * maxValue + 1));
+        //int randNum = 33;
+        System.out.println("OK, I'm thinking of a number. Start guessing.");
+
+        for(int i = 1; i <= 7; i++) {
+            System.out.println();
+            System.out.println("Your guess");
+            int input = keyboard.nextInt();
+            keyboard.nextLine();
+
+            if(input == randNum) {
+                gameWon(i);
+                i = 7;
+            }
+            else if(input != randNum && i == maxTries) {
+                System.out.println("Sorry, that's " + i + " guesses. Number was " + randNum);
+            }
+
+            int d = Math.abs(input - randNum);
+            if(d <= 64) {
+                System.out.print("*");
+            }
+            if(d <= 32) {
+                System.out.print("*");
+            }
+            if(d <= 16) {
+                System.out.print("*");
+            }
+            if(d <= 8) {
+                System.out.print("*");
+            }
+            if(d <= 4) {
+                System.out.print("*");
+            }
+            if(d <= 2) {
+                System.out.print("*");
+            }
+            System.out.print("*");
+            System.out.println();
+
+        }
 
 
+
+    }
+
+    public static void gameWon(int tries) {
+        for(int i = 0; i < 50; i++) {
+            System.out.print("*");
+        }
+        System.out.println("!!!");
+        System.out.println("You got it in " + tries + " guesses!!!");
     }
 }
