@@ -57,12 +57,12 @@ public class AceyDucey {
 
                 while(b == 2) {
                     b = rollCard();
-                    System.out.println(b);
+                   // System.out.println(b);
                 }
 
                 while(a >= b) {
                     a = rollCard();
-                    System.out.println(a);
+                  //  System.out.println(a);
                 }
 
                 printCard(a);
@@ -75,7 +75,7 @@ public class AceyDucey {
                     System.out.println("What is your bet? ");
                     bet = keyboard.nextInt();
                     keyboard.nextLine();
-                    if(bet < 0) {
+                    if(bet < 0 || bet > moneyBet[0]) {
                         System.out.println("Enter a valid bet \n");
                     }
                     else {
@@ -93,6 +93,7 @@ public class AceyDucey {
                     yourTurn = true;
                 } while(!yourTurn);
             }
+
         } while(hasMoney);
 
     }
@@ -111,7 +112,7 @@ public class AceyDucey {
 
     public static boolean checkMoney(boolean hasMoney, int[] moneyBet) {
         int money = moneyBet[0];
-        if(money == 0) {
+        if(money <= 0) {
             hasMoney = false;
         }
         return hasMoney;
