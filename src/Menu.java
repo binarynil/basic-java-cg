@@ -28,7 +28,6 @@ public class Menu {
 
             if(input == 1) {
                 AceyDucey.ace();
-
             }
             else if(input == 2) {
                 System.out.println("Bye.");
