@@ -34,7 +34,7 @@ public class AceyDucey {
         System.out.println("a value between the first two.");
         System.out.println("If you do not want to bet, input a 0 (zero)");
 
-        System.out.printf("You have %d dollars \n", money);
+        System.out.printf("You have %d dollars \n", moneyBet[0]);
 
         do {
 
