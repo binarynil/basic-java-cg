@@ -93,7 +93,6 @@ public class AceyDucey {
                     yourTurn = true;
                 } while(!yourTurn);
             }
-
         } while(hasMoney);
     }
 
