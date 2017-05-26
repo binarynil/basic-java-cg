@@ -95,7 +95,6 @@ public class AceyDucey {
             }
 
         } while(hasMoney);
-
     }
 
     public static boolean inBetween(int a, int b, int c) {
