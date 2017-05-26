@@ -13,6 +13,9 @@ This is the Java conversion of that code.
 
 public class AceyDucey {
 
+    private static String[] cardValue = {"0", "0", "2", "3", "4", "5", "6", "7", "8", "9",
+                                         "10", "Jack (11)", "Queen (12)", "King (13)", "Ace (14)"};
+
     public static void ace() {
         Scanner keyboard = new Scanner(System.in);
 
@@ -33,6 +36,7 @@ public class AceyDucey {
         System.out.println("on whether or not you feel the card will have");
         System.out.println("a value between the first two.");
         System.out.println("If you do not want to bet, input a 0 (zero)");
+        System.out.println();
 
         System.out.printf("You have %d dollars \n", moneyBet[0]);
 
@@ -51,9 +55,15 @@ public class AceyDucey {
                 int a = rollCard();
                 int b = rollCard();
 
-                do {
+                while(b == 2) {
+                    b = rollCard();
+                    System.out.println(b);
+                }
+
+                while(a >= b) {
                     a = rollCard();
-                } while(a >= b);
+                    System.out.println(a);
+                }
 
                 printCard(a);
                 printCard(b);
@@ -61,32 +71,42 @@ public class AceyDucey {
                 System.out.println();
 
                 do {
+
                     System.out.println("What is your bet? ");
                     bet = keyboard.nextInt();
-                    moneyBet[1] = bet;
-                    if(bet == 0) {
-                        System.out.println("Chicken!!");
-                    }
-                    else if(bet <= moneyBet[0]) {
-                        int c = rollCard();
-                        printCard(c);
-                        if(c > a && c >= b) {
-                            roundWin = false;
-                            System.out.println("Sorry, you lose.");
-                        }
-                        else {
-                            roundWin = true;
-                        }
-                        moneyBet = calcMoney(roundWin, moneyBet);
+                    keyboard.nextLine();
+                    if(bet < 0) {
+                        System.out.println("Enter a valid bet \n");
                     }
                     else {
-                        System.out.println("Enter a valid bet");
+                        moneyBet[1] = bet;
+                        if(bet == 0) {
+                            System.out.println("Chicken!!");
+                        }
+                        else if(bet <= moneyBet[0]) {
+                            int c = rollCard();
+                            printCard(c);
+                            roundWin = inBetween(a, b, c);
+                        }
                     }
+                    moneyBet = calcMoney(roundWin, moneyBet);
                     yourTurn = true;
                 } while(!yourTurn);
             }
         } while(hasMoney);
 
+    }
+
+    public static boolean inBetween(int a, int b, int c) {
+        boolean roundWin;
+        if(c > a && c < b) {
+            roundWin = true;
+        }
+        else {
+            roundWin = false;
+            System.out.println("Sorry, you lose.");
+        }
+        return roundWin;
     }
 
     public static boolean checkMoney(boolean hasMoney, int[] moneyBet) {
@@ -117,20 +137,6 @@ public class AceyDucey {
     }
 
     public static void printCard(int card) {
-        if(card < 11) {
-            System.out.println(" " + card);
-        }
-        else if(card == 11) {
-            System.out.println(" Jack");
-        }
-        else if(card == 12) {
-            System.out.println(" Queen");
-        }
-        else if(card == 13) {
-            System.out.println(" King");
-        }
-        else if(card == 14) {
-            System.out.println(" Ace");
-        }
+        System.out.println(" " + cardValue[card]);
     }
 }
