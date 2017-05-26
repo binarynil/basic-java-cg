@@ -36,7 +36,6 @@ public class Menu {
             else {
                 System.out.println("EROROROROR");
             }
-
         } while(input != 2);
     }
 }
