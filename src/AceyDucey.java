@@ -21,7 +21,7 @@ public class AceyDucey {
 
 
         int[] moneyBet = {100, 0}; //index 0 total money, index 1 bet
-        int bet;
+        int bet = 0;
 
         boolean hasMoney = true;
         boolean yourTurn;
@@ -34,8 +34,9 @@ public class AceyDucey {
         System.out.println("The dealer (computer) deals two cards face up");
         System.out.println("You have an option to bet or not bet depending");
         System.out.println("on whether or not you feel the card will have");
-        System.out.println("a value between the first two.");
+        System.out.println("a value between the first two. \n");
         System.out.println("If you do not want to bet, input a 0 (zero)");
+        System.out.println("If you want to return to main menu, input -999");
         System.out.println();
 
         System.out.printf("You have %d dollars \n", moneyBet[0]);
@@ -75,7 +76,11 @@ public class AceyDucey {
                     System.out.println("What is your bet? ");
                     bet = keyboard.nextInt();
                     keyboard.nextLine();
-                    if(bet < 0 || bet > moneyBet[0]) {
+                    if(bet == -999) {
+                        System.out.println("Returning to main menu");
+                        hasMoney = false;
+                    }
+                    else if(bet < 0 || bet > moneyBet[0]) {
                         System.out.println("Enter a valid bet \n");
                     }
                     else {
@@ -89,8 +94,12 @@ public class AceyDucey {
                             roundWin = inBetween(a, b, c);
                         }
                     }
-                    moneyBet = calcMoney(roundWin, moneyBet);
+
+                    if(bet != -999) {
+                        moneyBet = calcMoney(roundWin, moneyBet);
+                    }
                     yourTurn = true;
+
                 } while(!yourTurn);
             }
         } while(hasMoney);

@@ -7,6 +7,7 @@ public class Menu {
 
         Scanner keyboard = new Scanner(System.in);
         int input;
+        String[] menuArray = {null, "Acey Ducey", "Stars", "quit"};
 
         System.out.println("BASIC Computer Games converted into Java");
         System.out.println("Taken from http://www.atariarchives.org/basicgames/");
@@ -18,8 +19,10 @@ public class Menu {
             System.out.println();
             System.out.println("Select Game: ");
 
-            System.out.println("1. Acey Duecy");
-            System.out.println("2. quit");
+            for(int i = 1; i < menuArray.length; i++) {
+                System.out.println(i + ". " + menuArray[i]);
+            }
+
             System.out.println();
             System.out.print("Enter choice: ");
             input = keyboard.nextInt();
@@ -30,11 +33,14 @@ public class Menu {
                 AceyDucey.ace();
             }
             else if(input == 2) {
+                Stars.star();
+            }
+            else if(input == 3) {
                 System.out.println("Bye.");
             }
             else {
                 System.out.println("EROROROROR");
             }
-        } while(input != 2);
+        } while(input != 3);
     }
 }
