@@ -37,6 +37,14 @@ public class Bagels {
             arrayA[i] = rndNum();
         }
 
+        for(int i = 0; i < arrayA.length; i++) {
+            int[] neighbors = checkNeighbor(i);
+            arrayA = uniqueNum(arrayA, i, neighbors);
+        }
+
+
+
+        /*
         while(arrayA[0] == arrayA[1] || arrayA[0] == arrayA[2]) {
             arrayA[0] = rndNum();
         }
@@ -47,7 +55,7 @@ public class Bagels {
 
         while(arrayA[2] == arrayA[0] || arrayA[2] == arrayA[1]) {
             arrayA[2] = rndNum();
-        }
+        } */
 
 
         System.out.println("OK. I have a number in mind");
@@ -59,5 +67,32 @@ public class Bagels {
     private static int rndNum() {
         int randomNum = (int)(Math.random() * 10);
         return randomNum;
+    }
+
+    private static int[] checkNeighbor(int i) {
+        int[] neighbors = new int[2];
+        if(i == 0) {
+            neighbors[i] = i + 1;
+            neighbors[i+1] = i + 2;
+        }
+        else if(i == 1) {
+            neighbors[i-1] = i + 1;
+            neighbors[i] = i - 1;
+        }
+        else if(i == 2) {
+            neighbors[i-i] = i - i;
+            neighbors[i-1] = i - 1;
+        }
+        return neighbors;
+    }
+
+    private static int[] uniqueNum(int[] arrayA, int index, int[] neighbors) {
+        int n1 = neighbors[0];
+        int n2 = neighbors[1];
+        System.out.println(index+"  " + n1 + "  " + n2);
+        while(arrayA[index] == arrayA[n1] || arrayA[index] == arrayA[n2]) {
+            arrayA[index] = rndNum();
+        }
+        return arrayA;
     }
 }
