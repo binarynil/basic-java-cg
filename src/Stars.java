@@ -32,7 +32,6 @@ public class Stars {
         System.out.println();
 
         int randNum = (int)((Math.random() * maxValue + 1));
-        //int randNum = 33;
         System.out.println("OK, I'm thinking of a number. Start guessing.");
 
         for(int i = 1; i <= 7; i++) {
@@ -49,26 +48,26 @@ public class Stars {
                 System.out.println("Sorry, that's " + i + " guesses. Number was " + randNum);
             }
             else {
-                int d = Math.abs(input - randNum);
+                int difference = Math.abs(input - randNum);
                 /*
                   The original BASIC conditions for d were d >= num, but that didn't work.
                  */
-                if(d <= 64) {
+                if(difference <= 64) {
                     System.out.print("*");
                 }
-                if(d <= 32) {
+                if(difference <= 32) {
                     System.out.print("*");
                 }
-                if(d <= 16) {
+                if(difference <= 16) {
                     System.out.print("*");
                 }
-                if(d <= 8) {
+                if(difference <= 8) {
                     System.out.print("*");
                 }
-                if(d <= 4) {
+                if(difference <= 4) {
                     System.out.print("*");
                 }
-                if(d <= 2) {
+                if(difference <= 2) {
                     System.out.print("*");
                 }
                 System.out.print("*");

@@ -31,9 +31,9 @@ public class Dice {
         int input = keyboard.nextInt();
 
         for(int j = 0; j < input; j++) {
-            int a = (int)(Math.random() * 6);
-            int b = (int)(Math.random() * 6);
-            int index = a + b;
+            int diceOne = (int)(Math.random() * 6);
+            int diceTwo = (int)(Math.random() * 6);
+            int index = diceOne + diceTwo;
             fArray[index] += 1;
         }
 
