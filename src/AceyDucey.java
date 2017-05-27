@@ -53,21 +53,19 @@ public class AceyDucey {
                 System.out.println();
                 System.out.println("Here are your next two cards ");
 
-                int a = rollCard();
-                int b = rollCard();
+                int cardOne = rollCard();
+                int cardTwo = rollCard();
 
-                while(b == 2) {
-                    b = rollCard();
-                   // System.out.println(b);
+                while(cardTwo == 2) {
+                    cardTwo = rollCard();
                 }
 
-                while(a >= b) {
-                    a = rollCard();
-                  //  System.out.println(a);
+                while(cardOne >= cardTwo) {
+                    cardOne = rollCard();
                 }
 
-                printCard(a);
-                printCard(b);
+                printCard(cardOne);
+                printCard(cardTwo);
 
                 System.out.println();
 
@@ -89,9 +87,9 @@ public class AceyDucey {
                             System.out.println("Chicken!!");
                         }
                         else if(bet <= moneyBet[0]) {
-                            int c = rollCard();
-                            printCard(c);
-                            roundWin = inBetween(a, b, c);
+                            int cardThree = rollCard();
+                            printCard(cardThree);
+                            roundWin = inBetween(cardOne, cardTwo, cardThree);
                         }
                     }
 
@@ -105,9 +103,9 @@ public class AceyDucey {
         } while(hasMoney);
     }
 
-    public static boolean inBetween(int a, int b, int c) {
+    public static boolean inBetween(int cardOne, int cardTwo, int cardThree) {
         boolean roundWin;
-        if(c > a && c < b) {
+        if(cardThree > cardOne && cardThree < cardTwo) {
             roundWin = true;
         }
         else {
