@@ -76,7 +76,7 @@ public class Stars {
         }
     }
 
-    public static void gameWon(int tries) {
+    private static void gameWon(int tries) {
         for(int i = 0; i < 50; i++) {
             System.out.print("*");
         }

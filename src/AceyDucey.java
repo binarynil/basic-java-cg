@@ -103,7 +103,7 @@ public class AceyDucey {
         } while(hasMoney);
     }
 
-    public static boolean inBetween(int cardOne, int cardTwo, int cardThree) {
+    private static boolean inBetween(int cardOne, int cardTwo, int cardThree) {
         boolean roundWin;
         if(cardThree > cardOne && cardThree < cardTwo) {
             roundWin = true;
@@ -115,7 +115,7 @@ public class AceyDucey {
         return roundWin;
     }
 
-    public static boolean checkMoney(boolean hasMoney, int[] moneyBet) {
+    private static boolean checkMoney(boolean hasMoney, int[] moneyBet) {
         int money = moneyBet[0];
         if(money <= 0) {
             hasMoney = false;
@@ -123,7 +123,7 @@ public class AceyDucey {
         return hasMoney;
     }
 
-    public static int[] calcMoney(boolean roundWin, int[] moneyBet) {
+    private static int[] calcMoney(boolean roundWin, int[] moneyBet) {
         if(roundWin) {
             moneyBet[0] = moneyBet[0] + moneyBet[1];
         }
@@ -134,7 +134,7 @@ public class AceyDucey {
         return moneyBet;
     }
 
-    public static int rollCard() {
+    private static int rollCard() {
         int cardNum;
         do {
             cardNum = (int)((Math.random() * 14) + 2);
@@ -142,7 +142,7 @@ public class AceyDucey {
         return cardNum;
     }
 
-    public static void printCard(int card) {
+    private static void printCard(int card) {
         System.out.println(" " + cardValue[card]);
     }
 }
