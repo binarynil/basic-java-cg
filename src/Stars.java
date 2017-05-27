@@ -72,15 +72,8 @@ public class Stars {
                 }
                 System.out.print("*");
                 System.out.println();
-
             }
-
-
-
         }
-
-
-
     }
 
     public static void gameWon(int tries) {
