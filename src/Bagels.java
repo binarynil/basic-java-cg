@@ -32,8 +32,32 @@ public class Bagels {
         int[] arrayA = new int[3];
         int[] arrayB = new int[3];
 
+        int y = 0, t = 255;
+        for(int i = 0; i < arrayA.length; i++) {
+            arrayA[i] = rndNum();
+        }
+
+        while(arrayA[0] == arrayA[1] || arrayA[0] == arrayA[2]) {
+            arrayA[0] = rndNum();
+        }
+
+        while(arrayA[1] == arrayA[2] || arrayA[1] == arrayA[0]) {
+            arrayA[1] = rndNum();
+        }
+
+        while(arrayA[2] == arrayA[0] || arrayA[2] == arrayA[1]) {
+            arrayA[2] = rndNum();
+        }
 
 
+        System.out.println("OK. I have a number in mind");
+        for(int index : arrayA) {
+            System.out.println(index);
+        }
+    }
 
+    private static int rndNum() {
+        int randomNum = (int)(Math.random() * 10);
+        return randomNum;
     }
 }
