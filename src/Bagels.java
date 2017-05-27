@@ -15,9 +15,12 @@
  * The original authors of this program are D. Resek and P. Row of the Lawrence Hall of Science, Berkley, California
  * This is the Java conversion of that code.
  */
+import java.util.Scanner;
 public class Bagels {
 
     public static void butter() {
+        Scanner keyboard = new Scanner(System.in);
+
         System.out.println("                 Bagels");
         System.out.println("Creative Computing  Morristown, New Jersey");
         System.out.println();
@@ -42,6 +45,33 @@ public class Bagels {
             arrayA = uniqueNum(arrayA, i, neighbors);
         }
 
+        System.out.println("OK. I have a number in mind");
+        for(int index : arrayA) {
+            System.out.println(index);
+        }
+
+        for(int i = 1; i <= 20; i++) {
+            System.out.println("Guess # " + i + " ");
+            String input = keyboard.nextLine();
+            while(input.length() != 3) {
+                System.out.println("Guess a three digit number");
+                input = keyboard.nextLine();
+            }
+            System.out.println(input);
+
+            for(int j = 0; j < arrayB.length; j++) {
+                String stringInt = input.substring(j, j+1);
+                int x = Integer.parseInt(stringInt);
+                arrayB[j] = x;
+            }
+
+            for(int index : arrayB) {
+                System.out.print(index);
+            }
+
+        }
+
+
 
 
         /*
@@ -56,12 +86,6 @@ public class Bagels {
         while(arrayA[2] == arrayA[0] || arrayA[2] == arrayA[1]) {
             arrayA[2] = rndNum();
         } */
-
-
-        System.out.println("OK. I have a number in mind");
-        for(int index : arrayA) {
-            System.out.println(index);
-        }
     }
 
     private static int rndNum() {
