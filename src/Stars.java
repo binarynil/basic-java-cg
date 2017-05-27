@@ -34,7 +34,7 @@ public class Stars {
         int randNum = (int)((Math.random() * maxValue + 1));
         System.out.println("OK, I'm thinking of a number. Start guessing.");
 
-        for(int i = 1; i <= 7; i++) {
+        for(int i = 1; i <= maxTries; i++) {
             System.out.println();
             System.out.println("Your guess");
             int input = keyboard.nextInt();
