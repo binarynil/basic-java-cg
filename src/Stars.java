@@ -31,7 +31,7 @@ public class Stars {
         System.out.println("You get " + maxTries + " guesses.");
         System.out.println();
 
-        int randNum = (int)((Math.random() * maxValue + 1));
+        int randNum = (int)((Math.random() * maxValue) + 1);
         System.out.println("OK, I'm thinking of a number. Start guessing.");
 
         for(int i = 1; i <= maxTries; i++) {
