@@ -42,7 +42,7 @@ public class Stars {
 
             if(input == randNum) {
                 gameWon(i);
-                i = 7;
+                i = maxTries;
             }
             else if(input != randNum && i == maxTries) {
                 System.out.println("Sorry, that's " + i + " guesses. Number was " + randNum);
