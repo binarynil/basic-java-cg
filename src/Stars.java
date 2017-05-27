@@ -48,28 +48,35 @@ public class Stars {
             else if(input != randNum && i == maxTries) {
                 System.out.println("Sorry, that's " + i + " guesses. Number was " + randNum);
             }
+            else {
+                int d = Math.abs(input - randNum);
+                /*
+                  The original BASIC conditions for d were d >= num, but that didn't work.
+                 */
+                if(d <= 64) {
+                    System.out.print("*");
+                }
+                if(d <= 32) {
+                    System.out.print("*");
+                }
+                if(d <= 16) {
+                    System.out.print("*");
+                }
+                if(d <= 8) {
+                    System.out.print("*");
+                }
+                if(d <= 4) {
+                    System.out.print("*");
+                }
+                if(d <= 2) {
+                    System.out.print("*");
+                }
+                System.out.print("*");
+                System.out.println();
 
-            int d = Math.abs(input - randNum);
-            if(d <= 64) {
-                System.out.print("*");
             }
-            if(d <= 32) {
-                System.out.print("*");
-            }
-            if(d <= 16) {
-                System.out.print("*");
-            }
-            if(d <= 8) {
-                System.out.print("*");
-            }
-            if(d <= 4) {
-                System.out.print("*");
-            }
-            if(d <= 2) {
-                System.out.print("*");
-            }
-            System.out.print("*");
-            System.out.println();
+
+
 
         }
 
