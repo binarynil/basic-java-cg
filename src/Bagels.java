@@ -31,11 +31,13 @@ public class Bagels {
         System.out.println("   BAGELS   - No digits correct");
         System.out.println();
 
-        int[] arrayA1 = new int[6];
+        //int[] arrayA1 = new int[6];
         int[] arrayA = new int[3];
         int[] arrayB = new int[3];
+        String stringNum = "";
+        String gameLoop = "loop";
+        boolean wonGame = false;
 
-        int y = 0, t = 255;
         for(int i = 0; i < arrayA.length; i++) {
             arrayA[i] = rndNum();
         }
@@ -45,19 +47,27 @@ public class Bagels {
             arrayA = uniqueNum(arrayA, i, neighbors);
         }
 
-        System.out.println("OK. I have a number in mind");
-        for(int index : arrayA) {
-            System.out.println(index);
+        for(int i = 0; i < arrayA.length; i++) {
+            stringNum += arrayA[i];
         }
 
-        for(int i = 1; i <= 20; i++) {
-            System.out.println("Guess # " + i + " ");
+        System.out.println("OK. I have a number in mind");
+       /* for(int index : arrayA) {
+            System.out.print(index);
+        }*/
+        //System.out.println();
+
+        int count = 1;
+        while(gameLoop.equals("loop")) {
+            System.out.println();
+
+            System.out.println("Guess # " + count + " ");
             String input = keyboard.nextLine();
             while(input.length() != 3) {
                 System.out.println("Guess a three digit number");
                 input = keyboard.nextLine();
             }
-            System.out.println(input);
+            //System.out.println(input);
 
             for(int j = 0; j < arrayB.length; j++) {
                 String stringInt = input.substring(j, j+1);
@@ -65,12 +75,17 @@ public class Bagels {
                 arrayB[j] = x;
             }
 
-            for(int index : arrayB) {
-                System.out.print(index);
+            String[] numChar = parseString(arrayB);
+            wonGame = picoFB(numChar, stringNum, input);
+            if(wonGame) {
+                gameLoop = "notLoop";
             }
-
+            else if (count == 20) {
+                System.out.println("That's twenty guesses. My number was " + stringNum);
+                gameLoop = "notLoop";
+            }
+            count++;
         }
-
 
 
 
@@ -82,15 +97,48 @@ public class Bagels {
         while(arrayA[1] == arrayA[2] || arrayA[1] == arrayA[0]) {
             arrayA[1] = rndNum();
         }
-
+2
         while(arrayA[2] == arrayA[0] || arrayA[2] == arrayA[1]) {
             arrayA[2] = rndNum();
         } */
     }
 
+    private static boolean picoFB(String[] numChar, String stringNum, String input) {
+        boolean wonGame = false;
+        for(int i = 0; i < numChar.length; i++) {
+            if(stringNum.equalsIgnoreCase(input)) {
+                System.out.println("You got it!!!");
+                i = numChar.length;
+                wonGame = true;
+            }
+            else {
+                String compareChar = numChar[i];
+
+                if(stringNum.indexOf(compareChar) == i) {
+                    System.out.print("Fermi ");
+                }
+                if(stringNum.contains(compareChar) && stringNum.indexOf(compareChar) != i) {
+                    System.out.print("Pico ");
+                }
+            }
+        }
+        System.out.println();
+        return wonGame;
+    }
+
     private static int rndNum() {
         int randomNum = (int)(Math.random() * 10);
         return randomNum;
+    }
+
+    private static String[] parseString(int[] arrayB) {
+        String[] charArray = new String[3];
+        for(int i = 0; i < arrayB.length; i++) {
+            String y = "" + arrayB[i];
+            //char x = y.charAt(0);
+            charArray[i] = y;
+        }
+        return charArray;
     }
 
     private static int[] checkNeighbor(int i) {
@@ -113,7 +161,7 @@ public class Bagels {
     private static int[] uniqueNum(int[] arrayA, int index, int[] neighbors) {
         int n1 = neighbors[0];
         int n2 = neighbors[1];
-        System.out.println(index+"  " + n1 + "  " + n2);
+        //System.out.println(index+"  " + n1 + "  " + n2);
         while(arrayA[index] == arrayA[n1] || arrayA[index] == arrayA[n2]) {
             arrayA[index] = rndNum();
         }
