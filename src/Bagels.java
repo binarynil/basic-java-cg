@@ -52,9 +52,9 @@ public class Bagels {
         }
 
         System.out.println("OK. I have a number in mind");
-       /* for(int index : arrayA) {
+       for(int index : arrayA) {
             System.out.print(index);
-        }*/
+        }
         //System.out.println();
 
         int count = 1;
@@ -98,6 +98,8 @@ public class Bagels {
 
     private static boolean picoFB(String[] numChar, String stringNum, String input, int count) {
         boolean wonGame = false;
+        int fermiCounter = 0;
+        int picoCounter = 0;
         for(int i = 0; i < numChar.length; i++) {
             if(stringNum.equalsIgnoreCase(input)) {
                 System.out.println("You got it!!!");
@@ -109,11 +111,17 @@ public class Bagels {
 
                 if(stringNum.indexOf(compareChar) == i) {
                     System.out.print("Fermi ");
+                    fermiCounter++;
                 }
                 if(stringNum.contains(compareChar) && stringNum.indexOf(compareChar) != i) {
                     System.out.print("Pico ");
+                    picoCounter++;
                 }
             }
+        }
+        int bagelsCounter = fermiCounter + picoCounter;
+        if(bagelsCounter == 0 && !wonGame) {
+            System.out.print("Bagels ");
         }
         System.out.println();
         if(count == 20) {
