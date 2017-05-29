@@ -52,10 +52,9 @@ public class Bagels {
         }
 
         System.out.println("OK. I have a number in mind");
-       for(int index : arrayA) {
+       /*for(int index : arrayA) {
             System.out.print(index);
-        }
-        //System.out.println();
+        } */
 
         int count = 1;
         while(!wonGame) {
