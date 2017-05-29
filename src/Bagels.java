@@ -58,7 +58,7 @@ public class Bagels {
         //System.out.println();
 
         int count = 1;
-        while(gameLoop.equals("loop")) {
+        while(!wonGame) {
             System.out.println();
 
             System.out.println("Guess # " + count + " ");
@@ -76,14 +76,7 @@ public class Bagels {
             }
 
             String[] numChar = parseString(arrayB);
-            wonGame = picoFB(numChar, stringNum, input);
-            if(wonGame) {
-                gameLoop = "notLoop";
-            }
-            else if (count == 20) {
-                System.out.println("That's twenty guesses. My number was " + stringNum);
-                gameLoop = "notLoop";
-            }
+            wonGame = picoFB(numChar, stringNum, input, count);
             count++;
         }
 
@@ -103,7 +96,7 @@ public class Bagels {
         } */
     }
 
-    private static boolean picoFB(String[] numChar, String stringNum, String input) {
+    private static boolean picoFB(String[] numChar, String stringNum, String input, int count) {
         boolean wonGame = false;
         for(int i = 0; i < numChar.length; i++) {
             if(stringNum.equalsIgnoreCase(input)) {
@@ -123,6 +116,10 @@ public class Bagels {
             }
         }
         System.out.println();
+        if(count == 20) {
+            System.out.println("That's twenty guesses. My number was " + stringNum);
+            wonGame = true;
+        }
         return wonGame;
     }
 
