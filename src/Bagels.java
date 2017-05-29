@@ -36,7 +36,7 @@ public class Bagels {
         int[] arrayB = new int[3];
         String stringNum = "";
         String gameLoop = "loop";
-        boolean wonGame = false;
+        boolean endGame = false;
 
         for(int i = 0; i < arrayA.length; i++) {
             arrayA[i] = rndNum();
@@ -57,7 +57,7 @@ public class Bagels {
         } */
 
         int count = 1;
-        while(!wonGame) {
+        while(!endGame) {
             System.out.println();
 
             System.out.println("Guess # " + count + " ");
@@ -75,7 +75,7 @@ public class Bagels {
             }
 
             String[] numChar = parseString(arrayB);
-            wonGame = picoFB(numChar, stringNum, input, count);
+            endGame = picoFB(numChar, stringNum, input, count);
             count++;
         }
 
@@ -96,14 +96,14 @@ public class Bagels {
     }
 
     private static boolean picoFB(String[] numChar, String stringNum, String input, int count) {
-        boolean wonGame = false;
+        boolean endGame = false;
         int fermiCounter = 0;
         int picoCounter = 0;
         for(int i = 0; i < numChar.length; i++) {
             if(stringNum.equalsIgnoreCase(input)) {
                 System.out.println("You got it!!!");
                 i = numChar.length;
-                wonGame = true;
+                endGame = true;
             }
             else {
                 String compareChar = numChar[i];
@@ -119,15 +119,15 @@ public class Bagels {
             }
         }
         int bagelsCounter = fermiCounter + picoCounter;
-        if(bagelsCounter == 0 && !wonGame) {
+        if(bagelsCounter == 0 && !endGame) {
             System.out.print("Bagels ");
         }
         System.out.println();
         if(count == 20) {
             System.out.println("That's twenty guesses. My number was " + stringNum);
-            wonGame = true;
+            endGame = true;
         }
-        return wonGame;
+        return endGame;
     }
 
     private static int rndNum() {
