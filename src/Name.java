@@ -9,7 +9,6 @@
  * implemented the Fischer-Yates shuffle.
  */
 import java.util.Scanner;
-import java.util.Stack;
 public class Name {
 
     public static void sort() {
@@ -32,7 +31,6 @@ public class Name {
 
 
         System.out.println();
-
         nameChar = "";
 
         for(int i = length-1; i >= 0; i--) {
@@ -46,13 +44,10 @@ public class Name {
         System.out.print("Let's put them in order like this: ");
         int rndNum = 0;
 
-        int n = length;
-
-
-        for(int i = 0; i < n-1; i++) {
+        for(int i = 0; i < length-1; i++) {
             boolean inBetween = false;
             while(!inBetween) {
-                rndNum = (int)(Math.random() * n-1);
+                rndNum = (int)(Math.random() * length-1);
 
                 if(i <= rndNum && rndNum < n) {
                     inBetween = true;
@@ -64,11 +59,11 @@ public class Name {
             nameArray[i] = rndTemp;
             nameArray[rndNum] = prevTemp;
         }
-        String hello = "hello";
-        //              01234
-        //              lehlo
-        //              lhelo
-        //              lhelo
+        /*              hello
+                        01234
+                        lehlo
+                        lhelo
+                        lhelo */
         for(String e : nameArray) {
             if(e.equalsIgnoreCase(" ")) {
                 e = "";
@@ -88,6 +83,6 @@ public class Name {
         }
         System.out.println("\nI really enjoyed meeting you " + yourName);
         System.out.println("Have a nice day!");
-        
+
     }
 }
