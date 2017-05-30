@@ -49,7 +49,7 @@ public class Name {
             while(!inBetween) {
                 rndNum = (int)(Math.random() * length-1);
 
-                if(i <= rndNum && rndNum < n) {
+                if(i <= rndNum && rndNum < length) {
                     inBetween = true;
                 }
             }
