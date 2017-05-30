@@ -26,10 +26,7 @@ public class AceyDucey {
         boolean hasMoney = true;
         boolean yourTurn;
         boolean roundWin = true;
-        System.out.println("           Acey Ducey Card Game");
-        System.out.println("Creative Computing  Morristown, New Jersey");
-        System.out.println();
-        System.out.println();
+
         System.out.println("Acey Duecy is played in the following manner");
         System.out.println("The dealer (computer) deals two cards face up");
         System.out.println("You have an option to bet or not bet depending");

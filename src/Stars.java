@@ -19,10 +19,6 @@ public class Stars {
     public static void star() {
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("                   Stars");
-        System.out.println("Creative Computing  Morristown, New Jersey");
-        System.out.println();
-        System.out.println();
         System.out.println("I am thinking of a whole number from 1 to " + maxValue);
         System.out.println("Try to guess my number. After you guess, I will");
         System.out.println("type one or more stars (*) The more stars I type,");

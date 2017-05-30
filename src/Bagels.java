@@ -21,9 +21,6 @@ public class Bagels {
     public static void butter() {
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("                 Bagels");
-        System.out.println("Creative Computing  Morristown, New Jersey");
-        System.out.println();
         System.out.println("I am thinking of a three-digit number.");
         System.out.println("Try to guess my number, and I will give you clues as follows");
         System.out.println("   PICO     - One digit correct, but in the wrong position");

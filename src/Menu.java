@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class Menu {
 
     // main menu class / program
+    private static String[] menuArray = {null, "Acey Ducey", "Bagels", "Dice", "Name", "Stars", "quit"};
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
         int input;
-        String[] menuArray = {null, "Acey Ducey", "Bagels", "Dice", "Stars", "quit"};
 
         System.out.println("BASIC Computer Games converted into Java");
         System.out.println("Taken from http://www.atariarchives.org/basicgames/");
@@ -20,7 +20,7 @@ public class Menu {
             System.out.println("Select Game: ");
 
             for(int i = 1; i < menuArray.length; i++) {
-                System.out.println(i + ". " + menuArray[i]);
+                System.out.println(i + ".   " + menuArray[i]);
             }
 
             System.out.println();
@@ -30,23 +30,45 @@ public class Menu {
             System.out.println();
 
             if(input == 1) {
+                printCC(input);
                 AceyDucey.ace();
             }
             else if(input == 2) {
+                printCC(input);
                 Bagels.butter();
             }
             else if(input == 3) {
+                printCC(input);
                 Dice.roll();
             }
             else if(input == 4) {
-                Stars.star();
+                printCC(input);
+                Name.sort();
             }
             else if(input == 5) {
+                printCC(input);
+                Stars.star();
+            }
+            else if(input == 6) {
                 System.out.print("Bye.");
             }
             else {
                 System.out.println("EROROROROR");
             }
-        } while(input != 5);
+        } while(input != 6);
+    }
+
+    private static void printCC(int input) {
+        int spaces = (42 - menuArray[input].length()) / 2;
+        //spaces = spaces / 2;
+        String printGame = "";
+        for(int i = 0; i < spaces; i++) {
+            printGame += " ";
+        }
+        printGame += menuArray[input];
+        System.out.println(printGame);
+        System.out.println("Creative Computing  Morristown, New Jersey");
+        System.out.println();
+        System.out.println();
     }
 }

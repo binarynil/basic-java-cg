@@ -13,10 +13,6 @@ public class Dice {
     public static void roll() {
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("Dice");
-        System.out.println("Creative Computing  Morristown, New Jersey");
-        System.out.println();
-        System.out.println();
         System.out.println("This program simulates the rolling of a pair of dice");
         System.out.println("You enter the number of times you want the computer");
         System.out.println("to roll the dice. Watch out, very large numbers take ");
