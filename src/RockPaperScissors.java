@@ -20,12 +20,12 @@ public class RockPaperScissors {
             System.out.print("How many games? ");
             gameNum = keyboard.nextInt();
 
-            if(gameNum > 10) {
+            if(gameNum > 10 || gameNum < 1) {
                 System.out.println("Sorry, but we aren't allowed to play that many.");
             }
             System.out.println();
 
-        } while(gameNum > 10);
+        } while(gameNum > 10 || gameNum < 1);
 
         int count = 1;
 
