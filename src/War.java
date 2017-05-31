@@ -100,6 +100,9 @@ public class War {
                 System.out.println("You ran out of cards.");
                 System.out.println("Final Score:  You--" + yourWins + " Computer--" + cpuWins);
             }
+            if(!yesNo) {
+                System.out.println("Thanks for playing. It was fun.");
+            }
 
         } while(yesNo);
     }
