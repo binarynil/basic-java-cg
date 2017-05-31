@@ -58,7 +58,7 @@ public class War {
         int cpuWins = 0;
         do {
             int cardSize = cards.size() - 1;
-            System.out.println("CARD SIZe " + cardSize);
+            //System.out.println("CARD SIZe " + cardSize);
 
             int yourNum = genNum(cardSize);
             int cpuNum = genNum(cardSize, yourNum);
