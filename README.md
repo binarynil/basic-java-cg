@@ -10,5 +10,5 @@ Created:
  Stars and fixed the game logic from the original code  
  Dice  
  Bagels  
- Name
- War  
+ Name  
+ War
