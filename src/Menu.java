@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Menu {
 
     // main menu class / program
-    private static String[] menuArray = {null, "Acey Ducey", "Bagels", "Dice", "Name", "Stars", "War", "quit"};
+    private static String[] menuArray = {null, "Acey Ducey", "Bagels", "Dice", "Name", "Rock, Paper, Scissors", "Stars", "War", "quit"};
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
@@ -47,19 +47,23 @@ public class Menu {
             }
             else if(input == 5) {
                 printCC(input);
-                Stars.star();
+                RockPaperScissors.shoot();
             }
             else if(input == 6) {
                 printCC(input);
-                War.machine();
+                Stars.star();
             }
             else if(input == 7) {
+                printCC(input);
+                War.machine();
+            }
+            else if(input == 8) {
                 System.out.print("Bye.");
             }
             else {
                 System.out.println("EROROROROR");
             }
-        } while(input != 7);
+        } while(input != 8);
     }
 
     private static void printCC(int input) {
