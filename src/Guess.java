@@ -61,7 +61,7 @@ public class Guess {
 
     private static void isVery(int guess, int predictedTries) {
         /*
-         It's simpler to write and if statement
+         It's simpler to write an if statement
          and have seperate lines to print out "Good" and "Very Good",
          but I wanted to follow the original Basic code. */
         if(guess <= predictedTries) {
