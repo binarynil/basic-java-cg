@@ -7,9 +7,10 @@ I will add code and classes as I go
 Created:  
  Main Menu program  
  Acey Ducey  
- Stars and fixed the game logic from the original code  
+ Stars  
  Dice  
  Bagels  
  Name  
  War  
  Rock Paper Scissors  
+ Guess
