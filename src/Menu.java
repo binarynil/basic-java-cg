@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Menu {
 
     // main menu class / program
-    private static String[] menuArray = {null, "Acey Ducey", "Bagels", "Dice", "Guess", "Name", "Rock, Paper, Scissors",
-                                         "Stars", "War", "quit"};
+    private static String[] menuArray = {null, "Acey Ducey", "Bagels", "Dice", "Guess", "Name", "Pizza",
+            "Rock, Paper, Scissors", "Stars", "War", "quit"};
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
@@ -21,7 +21,11 @@ public class Menu {
             System.out.println("Select Game: ");
 
             for(int i = 1; i < menuArray.length; i++) {
-                System.out.println(i + ".   " + menuArray[i]);
+                String spaces = ".    ";
+                if(i > 9) {
+                    spaces = ".   ";
+                }
+                System.out.println(i + spaces + menuArray[i]);
             }
 
             System.out.println();
@@ -52,23 +56,27 @@ public class Menu {
             }
             else if(input == 6) {
                 printCC(input);
-                RockPaperScissors.shoot();
+                Pizza.slice();
             }
             else if(input == 7) {
                 printCC(input);
-                Stars.star();
+                RockPaperScissors.shoot();
             }
             else if(input == 8) {
                 printCC(input);
-                War.machine();
+                Stars.star();
             }
             else if(input == 9) {
+                printCC(input);
+                War.machine();
+            }
+            else if(input == 10) {
                 System.out.print("Bye.");
             }
             else {
                 System.out.println("EROROROROR");
             }
-        } while(input != 9);
+        } while(input != 10);
     }
 
     private static void printCC(int input) {
