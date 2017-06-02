@@ -199,7 +199,7 @@ public class Pizza {
     }
 
     private static void printDirections(String name) {
-        System.out.println("The above is a map of the hones where you are to send pizzas.");
+        System.out.println("\nThe above is a map of the homes where you are to send pizzas.");
         System.out.println("Your job is to give a truck driver the location or coordinates");
         System.out.println("of the hone ordering the pizza.");
         System.out.println("Somebody will ask for a pizza to be delivered.");
