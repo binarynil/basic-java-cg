@@ -4,7 +4,7 @@ public class Menu {
 
     // main menu class / program
     private static String[] menuArray = {null, "Acey Ducey", "Bagels", "Dice", "Guess", "Name", "Pizza",
-            "Rock, Paper, Scissors", "Stars", "War", "quit"};
+            "Rock, Paper, Scissors", "Sine Wave", "Stars", "War", "quit"};
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
@@ -64,19 +64,23 @@ public class Menu {
             }
             else if(input == 8) {
                 printCC(input);
-                Stars.star();
+                SineWave.wavey();
             }
             else if(input == 9) {
                 printCC(input);
-                War.machine();
+                Stars.star();
             }
             else if(input == 10) {
+                printCC(input);
+                War.machine();
+            }
+            else if(input == 11) {
                 System.out.print("Bye.");
             }
             else {
                 System.out.println("EROROROROR");
             }
-        } while(input != 10);
+        } while(input != 11);
     }
 
     private static void printCC(int input) {
