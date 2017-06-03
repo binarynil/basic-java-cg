@@ -15,3 +15,4 @@ Created:
  Rock Paper Scissors  
  Guess  
  Pizza  
+ Sine Wave  
