@@ -42,7 +42,10 @@ public class FlipFlop {
                 num = rnd.nextDouble();
                 guesses = 0;
             }
-            if(input > 0 && input < 11) {
+            else if(input > 11) {
+                System.out.println("Illegal entry--Try again.");
+            }
+            else if(input > 0 && input < 11) {
                 isM = checkM(m, input);
                 if(isM) {
                     setX(xoArray, input-1, num, isM);
@@ -60,10 +63,10 @@ public class FlipFlop {
             allO = checkOver(xoArray);
             if(allO) {
                 if(guesses > 12) {
-                    System.out.println("Try harder next time. It took you "+guesses+" guesses.");
+                    System.out.println("Try harder next time. It took you " + guesses + " guesses.");
                 }
                 else {
-                    System.out.println("Very good. You guessed it in only "+guesses+" guesses.");
+                    System.out.println("Very good. You guessed it in only " + guesses + " guesses.");
                 }
             }
 
@@ -137,8 +140,7 @@ public class FlipFlop {
     }
 
     private static void checkXO(char[] xoArray, int j) {
-        System.out.println("j "+j);
-
+        //System.out.println("j "+j);
         if(xoArray[j] == 'X') {
             xoArray[j] = 'O';
         }
@@ -171,7 +173,7 @@ public class FlipFlop {
         int input;
 
         System.out.print("\nInput the number? ");
-        while(!keyboard.hasNextInt() || keyboard.nextInt() > 11) {
+        while(!keyboard.hasNextInt()) {
             System.out.println("Illegal entry--Try again.");
             keyboard.next();
             System.out.print("\nInput the number? ");
