@@ -38,6 +38,7 @@ public class FlipFlop {
                 fillXO(xoArray);
             }
             else if(input == 11) {
+                System.out.println("\nNew game");
                 fillXO(xoArray);
                 num = rnd.nextDouble();
                 guesses = 0;
@@ -96,19 +97,20 @@ public class FlipFlop {
         if(xoArray[i] == 'O') {
             xoArray[i] = 'X';
             if(isM) {
-                double r = Math.tan(num+i/num-i) - Math.sin(num/i) + 336*Math.sin(8*i);
-                double rN = r - (int)r;
-                int j = (int)(Math.abs(10*rN));
-                checkXO(xoArray, j);
+                calcO(xoArray, i, num);
             }
         }
         else {
             xoArray[i] = 'O';
-            double r = Math.tan(num+i/num-i) - Math.sin(num/i) + 336*Math.sin(8*i);
-            double rN = r - (int)r;
-            int j = (int)(Math.abs(10*rN));
-            checkXO(xoArray, j);
+            calcO(xoArray, i, num);
         }
+    }
+
+    private static void calcO(char[] xoArray, int i, double num) {
+        double r = Math.tan(num+i/num-i) - Math.sin(num/i) + 336*Math.sin(8*i);
+        double rN = r - (int)r;
+        int j = (int)(Math.abs(10*rN));
+        checkXO(xoArray, j);
     }
 
     private static boolean checkM(int m, int input) {
@@ -124,19 +126,20 @@ public class FlipFlop {
         if(xoArray[i] == 'O') {
             xoArray[i] = 'X';
             if(isM) {
-                double r = .592*(1/Math.tan(num/i+num) / Math.sin(i*2+num) - Math.cos(i));
-                double rN = r - (int)r;
-                int j = (int)(Math.abs(10*rN));
-                checkXO(xoArray, j);
+                calcO(xoArray, i, num);
             }
         }
         else {
             xoArray[i] = 'O';
-            double r = .592*(1/Math.tan(num/i+num) / Math.sin(i*2+num) - Math.cos(i));
-            double rN = r - (int)r;
-            int j = (int)(Math.abs(10*rN));
-            checkXO(xoArray, j);
+            calcO(xoArray, i, num);
         }
+    }
+
+    private static void calcX(char[] xoArray, int i, double num) {
+        double r = .592*(1/Math.tan(num/i+num) / Math.sin(i*2+num) - Math.cos(i));
+        double rN = r - (int)r;
+        int j = (int)(Math.abs(10*rN));
+        checkXO(xoArray, j);
     }
 
     private static void checkXO(char[] xoArray, int j) {
@@ -162,11 +165,10 @@ public class FlipFlop {
     }
 
     private static void fillXO(char[] xo) {
-        System.out.println("1 2 3 4 5 6 7 8 9 10");
-        System.out.println("X X X X X X X X X X");
         for(int i = 0; i < xo.length; i++) {
             xo[i] = 'X';
         }
+        printXO(xo);
     }
 
     private static int inputNum(Scanner keyboard) {
