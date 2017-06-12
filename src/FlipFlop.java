@@ -19,6 +19,7 @@ public class FlipFlop {
 
     public static void sequence() {
         Scanner keyboard = new Scanner(System.in);
+
         printIntro();
         Random rnd = new Random();
         char[] xoArray = new char[10];
@@ -136,6 +137,7 @@ public class FlipFlop {
     }
 
     private static void checkXO(char[] xoArray, int j) {
+        System.out.println("j "+j);
 
         if(xoArray[j] == 'X') {
             xoArray[j] = 'O';
@@ -171,10 +173,11 @@ public class FlipFlop {
         System.out.print("\nInput the number? ");
         while(!keyboard.hasNextInt() || keyboard.nextInt() > 11) {
             System.out.println("Illegal entry--Try again.");
-            keyboard.nextLine();
+            keyboard.next();
             System.out.print("\nInput the number? ");
         }
         input = keyboard.nextInt();
+        keyboard.nextLine();
 
         return input;
     }
