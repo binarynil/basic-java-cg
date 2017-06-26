@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Menu {
 
     // main menu class / program
-    private static String[] menuArray = {null, "Acey Ducey", "Bagels", "Batnum", "Bombs Away", "Bombardment", "Dice", "Flip Flop", "Guess",
-            "Name", "Pizza", "Rock, Paper, Scissors", "Sine Wave", "Stars", "War", "quit"};
+    private static String[] menuArray = {null, "Acey Ducey", "Bagels", "Batnum", "Bombs Away", "Bombardment", "Bullseye", "Dice",
+            "Flip Flop", "Guess", "Name", "Pizza", "Rock, Paper, Scissors", "Sine Wave", "Stars", "War", "quit"};
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);
@@ -55,47 +55,51 @@ public class Menu {
                 Bombardment.platoon();
             }
             else if(input == 6) {
-                Dice.roll();
+                printCC(input);
+                Bullseye.target();
             }
             else if(input == 7) {
-                printCC(input);
-                FlipFlop.sequence();
+                Dice.roll();
             }
             else if(input == 8) {
                 printCC(input);
-                Guess.who();
+                FlipFlop.sequence();
             }
             else if(input == 9) {
                 printCC(input);
-                Name.sort();
+                Guess.who();
             }
             else if(input == 10) {
                 printCC(input);
-                Pizza.slice();
+                Name.sort();
             }
             else if(input == 11) {
                 printCC(input);
-                RockPaperScissors.shoot();
+                Pizza.slice();
             }
             else if(input == 12) {
                 printCC(input);
-                SineWave.wavey();
+                RockPaperScissors.shoot();
             }
             else if(input == 13) {
                 printCC(input);
-                Stars.star();
+                SineWave.wavey();
             }
             else if(input == 14) {
                 printCC(input);
-                War.machine();
+                Stars.star();
             }
             else if(input == 15) {
+                printCC(input);
+                War.machine();
+            }
+            else if(input == 16) {
                 System.out.print("Bye.");
             }
             else {
                 System.out.println("EROROROROR");
             }
-        } while(input != 15);
+        } while(input != 16);
     }
 
     private static void printCC(int input) {
