@@ -4,7 +4,7 @@ Converting Basic Computer Games to Java from http://www.atariarchives.org/basicg
 
 I will add code and classes as I go
 
-Created:  
+### Created:  
  Main Menu program  
  Acey Ducey  
  Stars  
